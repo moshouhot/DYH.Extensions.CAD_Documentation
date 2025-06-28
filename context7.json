@@ -1,0 +1,15 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "DYH.Extensions.CAD 库",
+  "description": "DYH.Extensions.CAD 是一个专为CAD开发设计的C#扩展库，提供了依赖注入框架和丰富的CAD操作工具类，基于IFOXCAD库的扩展。",
+  "folders": [],
+  "excludeFolders": [],
+  "excludeFiles": [],
+  "rules": [],
+  "previousVersions": [
+    {
+      "tag": "v3.0.0",
+      "title": "version 3.0.0"
+    }
+  ]
+} 

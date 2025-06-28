@@ -1,0 +1,656 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DYH.Extensions.CAD</name>
+    </assembly>
+    <members>
+        <member name="T:DYH.Extensions.CAD.PointMonitorService">
+            <summary>
+            PointMonitor服务<br/>
+            单例注入
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.PointMonitorService.#ctor">
+            <summary>
+            构造时注入事件
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.PointMonitorService.TopPickedEntityId">
+            <summary>
+            最顶部的拾取对象
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.PointMonitorService.TopKeyPointEntityId">
+            <summary>
+            最顶部的吸附对象
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.PointMonitorService.LastSnapPoint">
+            <summary>
+            最后一个吸附点
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.IPointMonitorService">
+            <summary>
+            PointMonitor服务
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.IPointMonitorService.TopPickedEntityId">
+            <summary>
+            最顶部的拾取对象
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.IPointMonitorService.TopKeyPointEntityId">
+            <summary>
+            最顶部的吸附对象
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.IPointMonitorService.LastSnapPoint">
+            <summary>
+            最后一个吸附点
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.BestBoxTool">
+            <summary>
+            最佳包围盒工具类
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.BestBoxTool.GetBestBoxPoints(Autodesk.AutoCAD.DatabaseServices.MText)">
+            <summary>
+            获取多行文字最佳包围点
+            </summary>
+            <param name="mText">多行文字</param>
+            <returns>含有4个坐标的表</returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.BestBoxTool.GetBestBoxPoints(Autodesk.AutoCAD.DatabaseServices.DBText)">
+            <summary>
+            获取单行文字最佳包围点
+            </summary>
+            <param name="text">单行文字</param>
+            <returns>含有4个坐标的表</returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.BoundingBoxRelationTool">
+            <summary>
+            包围盒关系工具类
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.BoundingBoxRelationTool.Tolerance">
+            <summary>
+            容差
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.BoundingBoxRelationTool.GetRelation2d(Autodesk.AutoCAD.DatabaseServices.Extents3d,Autodesk.AutoCAD.DatabaseServices.Extents3d)">
+            <summary>
+            获取两个包围盒的关系
+            </summary>
+            <param name="box1">盒子1</param>
+            <param name="box2">盒子2</param>
+            <returns>关系</returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.BoundingBoxRelationTool.IsSeparate2d(Autodesk.AutoCAD.DatabaseServices.Extents3d,Autodesk.AutoCAD.DatabaseServices.Extents3d)">
+            <summary>
+            判断两个包围盒是否完全分离
+            </summary>
+            <param name="box1">盒子1</param>
+            <param name="box2">盒子2</param>
+            <returns>是则返回<c>true</c></returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.BoundingBoxRelationTool.IsContains2d(Autodesk.AutoCAD.DatabaseServices.Extents3d,Autodesk.AutoCAD.DatabaseServices.Extents3d)">
+            <summary>
+            判断box1是否包含box2
+            </summary>
+            <param name="box1">盒子1</param>
+            <param name="box2">盒子2</param>
+            <returns>是则返回<c>true</c></returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.BoundingBoxRelation">
+            <summary>
+            包围盒关系枚举
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.BoundingBoxRelation.SEPARATION">
+            <summary>
+            分离
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.BoundingBoxRelation.CONNECTION">
+            <summary>
+            相连
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.BoundingBoxRelation.INTERSECTION">
+            <summary>
+            相交
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.BoundingBoxRelation.CONTAINMENT">
+            <summary>
+            包含
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.BoundingBoxRelation.INSIDE">
+            <summary>
+            在内
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.ComMenu">
+            <summary>
+            COM接口菜单操作类
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.ComMenu.AcadComMenu">
+            <summary>
+            COM接口菜单对象
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.AddMenuItem(System.Int32,System.String,System.String)">
+            <summary>
+            添加菜单项
+            </summary>
+            <param name="index">序号</param>
+            <param name="name">名字</param>
+            <param name="command">命令</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.AddMenuItem(System.String,System.String)">
+            <summary>
+            添加菜单项
+            </summary>
+            <param name="name">名字</param>
+            <param name="command">命令</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.AddSubMenu(System.Int32,System.String)">
+            <summary>
+            添加子菜单
+            </summary>
+            <param name="index">序号</param>
+            <param name="name">名字</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.AddSubMenu(System.String)">
+            <summary>
+            添加子菜单
+            </summary>
+            <param name="name">名字</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.AddSeparator(System.Int32)">
+            <summary>
+            添加分割线
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.AddSeparator">
+            <summary>
+            添加分割线
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.DeleteItem(System.Int32)">
+            <summary>
+            删除项
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.InsertInMenuBar(System.Nullable{System.Int32})">
+            <summary>
+            插入到菜单栏
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.RemoveFromMenuBar">
+            <summary>
+            从菜单栏移除
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ComMenu.Clear">
+            <summary>
+            清空菜单
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.CurveTool">
+            <summary>
+            曲线工具
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.CurveTool.GetClosestPointOnCur(Autodesk.AutoCAD.DatabaseServices.Curve,Autodesk.AutoCAD.Geometry.Point3d)">
+            <summary>
+            获取最近点（修复坐标过大的情况）
+            </summary>
+            <param name="curve">曲线</param>
+            <param name="point">点</param>
+            <returns>最近点坐标</returns>
+            <exception cref="T:System.Exception">获取失败</exception>
+        </member>
+        <member name="M:DYH.Extensions.CAD.CurveTool.GetParameterAtClosestPoint(Autodesk.AutoCAD.DatabaseServices.Curve,Autodesk.AutoCAD.Geometry.Point3d)">
+            <summary>
+            求最近点的参数
+            </summary>
+            <param name="curve">曲线</param>
+            <param name="point">点</param>
+            <returns>参数值</returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.CurveTool.GetMidPoint(Autodesk.AutoCAD.DatabaseServices.Curve)">
+            <summary>
+            获取曲线的中点
+            </summary>
+            <param name="curve">曲线</param>
+            <returns>中点坐标</returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.DBDictionaryTool">
+            <summary>
+            数据库字典工具类
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DBDictionaryTool.SetSoftPointer(Autodesk.AutoCAD.DatabaseServices.DBDictionary,System.String,System.Collections.Generic.IEnumerable{Autodesk.AutoCAD.DatabaseServices.ObjectId})">
+            <summary>
+            设置软指针id
+            </summary>
+            <param name="dic">字典</param>
+            <param name="key">key</param>
+            <param name="ids">id列表</param>
+            <returns>字典项的id</returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DBDictionaryTool.GetSoftPointer(Autodesk.AutoCAD.DatabaseServices.DBDictionary,System.String)">
+            <summary>
+            获取软指针id
+            </summary>
+            <param name="dic">字典</param>
+            <param name="key">key</param>
+            <returns>id列表</returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.DBObjectTool">
+            <summary>
+            提供对CAD数据库对象的操作工具方法
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DBObjectTool.GetBlockTableRecord(Autodesk.AutoCAD.DatabaseServices.BlockReference,Autodesk.AutoCAD.DatabaseServices.OpenMode)">
+            <summary>
+            获取块参照的块表记录
+            </summary>
+            <param name="brf">块参照</param>
+            <param name="openMode">打开方式，默认只读</param>
+            <returns>块表记录</returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DBObjectTool.Highlight(System.Collections.Generic.IEnumerable{Autodesk.AutoCAD.DatabaseServices.Entity})">
+            <summary>
+            亮显指定的实体列表
+            </summary>
+            <param name="entList">需要亮显的实体集合</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DBObjectTool.UnHighlight(System.Collections.Generic.IEnumerable{Autodesk.AutoCAD.DatabaseServices.Entity})">
+            <summary>
+            取消亮显指定的实体列表
+            </summary>
+            <param name="entList">需要取消亮显的实体集合</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DBObjectTool.Dispose(System.Collections.Generic.IEnumerable{Autodesk.AutoCAD.DatabaseServices.Entity})">
+            <summary>
+            释放指定的实体列表资源
+            </summary>
+            <param name="entList">需要释放的实体集合</param>
+        </member>
+        <member name="T:DYH.Extensions.CAD.EntityTool">
+            <summary>
+            Entity工具类
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.EntityTool.GetTransformedCopyList(Autodesk.AutoCAD.DatabaseServices.Entity,Autodesk.AutoCAD.Geometry.Matrix3d)">
+            <summary>
+            获取转换矩阵后的对象列表
+            </summary>
+            <param name="ent">源对象</param>
+            <param name="mt">矩阵</param>
+            <returns>转换矩阵后的对象列表</returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.Extents3dTool">
+            <summary>
+            三维包围盒工具类
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.Extents3dTool.GetEnumerator(Autodesk.AutoCAD.DatabaseServices.Extents3d)">
+            <summary>
+            获取三维包围盒的迭代器
+            </summary>
+            <param name="extents3d">三维包围盒</param>
+            <returns>三维包围盒的迭代器</returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.PolylineTool">
+            <summary>
+            多段线工具类
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.PolylineTool.Repair(Autodesk.AutoCAD.DatabaseServices.Polyline,System.Double)">
+            <summary>
+            修复多段线，删除重复点和共线点。
+            </summary>
+            <param name="pl">需要修复的多段线对象。</param>
+            <param name="tol">容差值，用于判断点是否共线，默认值为1e-6。</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.PolylineTool.Add(Autodesk.AutoCAD.DatabaseServices.Polyline,Autodesk.AutoCAD.Geometry.Point3d)">
+            <summary>
+            向多段线添加一个新顶点。
+            </summary>
+            <param name="pl">需要添加顶点的多段线对象。</param>
+            <param name="pt">要添加的顶点坐标。</param>
+        </member>
+        <member name="T:DYH.Extensions.CAD.ProgressMeterManager">
+            <summary>
+            进度条管理器
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ProgressMeterManager.Start(System.String,System.Int32)">
+            <summary>
+            启动一个新的进度条管理器实例。
+            </summary>
+            <param name="message">显示在状态栏上的进度条消息。</param>
+            <param name="count">进度条的总步数。</param>
+            <returns>返回一个初始化后的 ProgressMeterManager 实例。</returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ProgressMeterManager.#ctor(System.String,System.Int32)">
+            <summary>
+            初始化 ProgressMeterManager 类的新实例。
+            </summary>
+            <param name="message">显示在状态栏上的进度条消息。</param>
+            <param name="count">进度条的总步数。</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ProgressMeterManager.Step(System.Nullable{System.Int32})">
+            <summary>
+            将进度条向前推进一步。
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.ProgressMeterManager.IsDisposed">
+            <summary>
+            获取一个值，指示当前对象是否已被释放。
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ProgressMeterManager.Dispose">
+            <summary>
+            释放 ProgressMeterManager 使用的资源，并恢复应用程序状态栏。
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.RxClassTool">
+            <summary>
+            RXClass工具
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.RxClassTool.Get``1">
+            <summary>
+            获取RXClass
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <returns>RXClass</returns>
+        </member>
+        <member name="F:DYH.Extensions.CAD.RxClassTool._rxClassDic">
+            <summary>
+            内部字典，防止每次创建RXClass速度过慢的问题
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.IScanSort">
+            <summary>
+            扫描排序接口
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.IScanSort.Center">
+            <summary>
+            中心
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.IScanSort.Width">
+            <summary>
+            宽
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.IScanSort.Height">
+            <summary>
+            高
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.ScanSortTool">
+            <summary>
+            扫描排序工具类
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ScanSortTool.ScanSort``1(System.Collections.Generic.IEnumerable{``0},DYH.Extensions.CAD.ScanSortType,System.Double)">
+            <summary>
+            扫掠排序
+            </summary>
+            <param name="source">数据</param>
+            <param name="scanSortType">排序方式</param>
+            <param name="tolerance">容差</param>
+            <typeparam name="T">类型</typeparam>
+            <returns>排序后的列表</returns>
+        </member>
+        <member name="P:DYH.Extensions.CAD.ScanSortTool.Tolerance">
+            <summary>
+            容差
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.ScanSortType">
+            <summary>
+            扫描排序类型
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.VERTICAL_FIRST">
+            <summary>
+            1位表示垂直优先还是水平优先
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.UP_FIRST">
+            <summary>
+            2位表示上优先还是下优先
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.LEFT_FIRST">
+            <summary>
+            3位表示左优先还是右优先
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.UP_DOWN_LEFT_RIGHT">
+            <summary>
+            上下左右
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.DOWN_UP_LEFT_RIGHT">
+            <summary>
+            下上左右
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.UP_DOWN_RIGHT_LEFT">
+            <summary>
+            上下右左
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.DOWN_UP_RIGHT_LEFT">
+            <summary>
+            下上右左
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.LEFT_RIGHT_UP_DOWN">
+            <summary>
+            左右上下
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.LEFT_RIGHT_DOWN_UP">
+            <summary>
+            左右下上
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.RIGHT_LEFT_UP_DOWN">
+            <summary>
+            右左上下
+            </summary>
+        </member>
+        <member name="F:DYH.Extensions.CAD.ScanSortType.RIGHT_LEFT_DOWN_UP">
+            <summary>
+            右左下上
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.TrayItemTool">
+            <summary>
+            气泡通知工具类，提供显示气泡窗口的功能。
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.TrayItemTool.ShowBubbleWindow(System.String,System.String)">
+            <summary>
+            显示一个气泡窗口。
+            </summary>
+            <param name="title">气泡窗口的标题，显示在通知的顶部。</param>
+            <param name="text1">气泡窗口的内容文本，默认为空字符串。如果未提供，则显示为空内容。</param>
+            <remarks>
+            该方法调用 IFoxUtils.ShowBubbleWindow 方法实现具体的通知逻辑。
+            参数 5 是固定值，指定气泡通知的显示时间。
+            </remarks>
+        </member>
+        <member name="T:DYH.Extensions.CAD.DebugHelper">
+            <summary>
+            调试辅助类
+            </summary>
+        </member>
+        <member name="P:DYH.Extensions.CAD.DebugHelper.IsDebug">
+            <summary>
+            是否开启调试模式
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DebugHelper.Do(System.Action)">
+            <summary>
+            执行一个Action
+            </summary>
+            <param name="action">要执行的Action</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DebugHelper.PrintDebug``1(``0)">
+            <summary>
+            打印一个对象，并返回该对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">要打印的对象</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DebugHelper.Pause(System.String)">
+            <summary>
+            暂停程序
+            </summary>
+            <param name="prompt">提示信息</param>
+        </member>
+        <member name="T:DYH.Extensions.CAD.DisposeAction">
+            <summary>
+            表示一个可释放的动作集合，用于在对象被释放时执行一系列动作。
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DisposeAction.Action(System.Action)">
+            <summary>
+            创建一个包含指定动作的DisposeAction实例。
+            </summary>
+            <param name="action">需要添加到DisposeAction中的动作。</param>
+            <returns>返回一个包含指定动作的DisposeAction实例。</returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DisposeAction.Add(System.Action)">
+            <summary>
+            将指定的动作添加到当前DisposeAction的动作队列中。
+            </summary>
+            <param name="action">需要添加的动作。</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DisposeAction.Dispose(System.Boolean)">
+            <summary>
+            执行释放操作，根据是否显式释放来决定是否执行托管资源的清理。
+            </summary>
+            <param name="disposing">指示是否显式释放托管资源。</param>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DisposeAction.Finalize">
+            <summary>
+            析构函数，确保在垃圾回收时调用释放逻辑。
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.DisposeAction.Dispose">
+            <summary>
+            执行与释放或重置非托管资源相关的应用程序定义的任务。
+            </summary>
+        </member>
+        <member name="T:DYH.Extensions.CAD.EnumeratorTool">
+            <summary>
+            Enumerator扩展工具
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.EnumeratorTool.GetEnumerator(System.Range)">
+            <summary>
+            将一个 Range 对象转换为一个枚举器 (IEnumerator<![CDATA[<]]><see cref="T:System.Int32"/>>)，用于遍历范围内的整数值
+            </summary>
+            <param name="range">表示一个范围的 Range 对象，包含起始值和结束值</param>
+            <returns>
+            返回一个 IEnumerator<![CDATA[<]]><see cref="T:System.Int32"/>> 枚举器，按顺序或逆序生成范围内的整数值
+            如果范围的起始值或结束值是从末尾计算的（IsFromEnd 为 true），则返回空枚举器
+            </returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.LinqTool">
+            <summary>
+            Linq扩展工具
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.LinqTool.Friends``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean})">
+            <summary>
+            分组
+            </summary>
+            <param name="list">要分组的列表</param>
+            <param name="func">分组条件</param>
+            <typeparam name="T">类型</typeparam>
+            <returns>分组结果</returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.MapperTool">
+            <summary>
+            映射工具类
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.MapperTool.MapTo(System.Object,System.Object)">
+            <summary>
+            映射到
+            </summary>
+            <param name="source">源</param>
+            <param name="destiny">目标</param>
+            <returns>目标类型</returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.MapperTool.MapTo``1(System.Object)">
+            <summary>
+            映射为
+            </summary>
+            <param name="obj">源</param>
+            <typeparam name="TDestiny">目标类型</typeparam>
+            <returns>目标对象</returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.ReflectionTool">
+            <summary>
+            反射工具
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ReflectionTool.GetProperty(System.Object,System.String)">
+            <summary>
+             com接口获取对象属性值，类似VisualLisp的vlax-get-property函数
+            </summary>
+            <param name="obj">对象</param>
+            <param name="key">属性名称</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:DYH.Extensions.CAD.ReflectionTool.InvokeMethod(System.Object,System.String,System.Object[])">
+            <summary>
+                com接口使用com方法，类似VisualLisp的vlax-invoke-method函数
+            </summary>
+            <param name="obj">对象</param>
+            <param name="method">方法名</param>
+            <param name="objArray">方法需要的参数</param>
+            <returns>方法的返回值</returns>
+        </member>
+        <member name="T:DYH.Extensions.CAD.SimpleStopWatch">
+            <summary>
+            简单毫秒计时器
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.SimpleStopWatch.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:DYH.Extensions.CAD.SimpleStopWatch.Mark(System.String)">
+            <summary>
+            记录
+            </summary>
+            <param name="message">输出到命令栏的内容</param>
+            <returns>时间(ms)</returns>
+        </member>
+    </members>
+</doc>
