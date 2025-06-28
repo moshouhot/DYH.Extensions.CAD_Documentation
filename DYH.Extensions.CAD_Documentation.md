@@ -90,13 +90,13 @@ dotnet add package DYH.Extensions.CAD --version 3.0.0
 ### 1. 初始化配置
 
 ```csharp
-using DYH.Extensions;
+using DYH.Extensions.CAD;
 using System.Reflection;
 using System.IO;
 using System;
 
 // 在应用程序启动时执行初始化
-DYH.Extensions.Initialize.Setup(cfg =>
+DYH.Extensions.CAD.Initialize.Setup(cfg =>
 {
     cfg.Assemblies = [Assembly.GetExecutingAssembly()];
     cfg.SettingsDir = Path.Combine(
